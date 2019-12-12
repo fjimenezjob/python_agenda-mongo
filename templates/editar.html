@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+    {% block title%}
+        {{super() }}
+            Editar Notas
+    {% endblock %}
+
+
+{% block main %}
+<section class="formulario_editar_notas">
+        <form action="{{ url_for('editar') }}" method="POST">
+            <label for="titulo">
+                Titulo:
+                <input class="input is-rounded" type="text" value="{{titulo_editar}}" name="titulo" placeholder="{{session.editar}}">
+            </label><br>
+            <label for="nota">
+                Contenido:
+                <textarea class="textarea is-info" name="editado" id="" cols="30" rows="10">{{ session.notaEditar[0] }}</textarea>
+            </label><br><br>
+            <button class="button" type="submit">Guardar</button>
+        </form><br><br>
+        <a  class="button is-warning" href="{{ url_for('ver') }}">Ver Notas</a>
+    </section>
+{% endblock %}

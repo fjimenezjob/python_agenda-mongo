@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <title>{% block title%} Voltex - {% endblock %}</title>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            {% block header %}
+            <section class="hero is-dark">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                      {{titulo}}
+                    </h1>
+                    <h2 class="subtitle">
+                      {{subtitulo}}
+                    </h2>
+                  </div>
+                </div>
+              </section><br><br>
+
+            {% endblock %}
+
+
+            {% block main %}
+    
+            {% endblock %}
+
+
+
+            {% block footer %}
+        
+            {% endblock %}
+        </div>
+    </section>
+</body>
+</html>
