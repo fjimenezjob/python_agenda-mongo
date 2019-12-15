@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+    {% block title%}
+        {{super() }}
+            Login
+    {% endblock %}
+
+
+{% block main %}
+
+{% if error %}
+<h1>Este email no esta registrado en nuestra base de datos, por favor registrese.</h1> <br>
+{% endif %}
+    <form action="{{ url_for('login') }}" method="POST" class="">
+        <label for="email">Email:
+            <input class="input" type="text" name="email" id="">
+        </label>
+        <label for="password">Password:
+            <input class="input" type="text" name="password" id="">
+        </label><br><br>
+        <button class="button" type="submit">Entrar</button>
+    </form> <br>
+    <a class="button is-info" href="{{ url_for('register') }}">Registro</a>
+{% endblock %}

@@ -18,10 +18,13 @@
                 <div class="hero-body">
                   <div class="container">
                     <h1 class="title">
-                      {{titulo}}
+                      {{ titulo }}
                     </h1>
                     <h2 class="subtitle">
-                      {{subtitulo}}
+                      {{ subtitulo }} {{  session.name }}<br><br>
+                      {% if session.email %}
+                          <a class="button is-danger" href="{{ url_for('salir') }}">Salir</a>
+                      {% endif %}
                     </h2>
                   </div>
                 </div>
