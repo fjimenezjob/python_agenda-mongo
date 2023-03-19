@@ -21,7 +21,7 @@
                       {{ titulo }}
                     </h1>
                     <h2 class="subtitle">
-                      {{ subtitulo }} {{  session.name }}<br><br>
+                      {{ subtitulo }} {{  session.name }} {{ session.surname }}<br><br>
                       {% if session.email %}
                           <a class="button is-danger" href="{{ url_for('salir') }}">Salir</a>
                       {% endif %}

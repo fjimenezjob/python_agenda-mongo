@@ -2,9 +2,9 @@ from flask import session
 from pymongo import MongoClient
 import datetime
 
-MONGO_URL_ATLAS = 'mongodb+srv://franjimenez:Francisco1231998@develop-0hasi.mongodb.net/test?retryWrites=true&w=majority'
+MONGO_URL_ATLAS = 'mongodb+srv://franjimenez:test@develop.0hasi.mongodb.net/?retryWrites=true&w=majority'
 
-client = MongoClient(MONGO_URL_ATLAS, ssl_cert_reqs=False)
+client = MongoClient(MONGO_URL_ATLAS, connect=True)
 
 db = client['agenda_mongo']
 
@@ -92,7 +92,7 @@ def crearUsuario(nombre, apellido, email, password):
 
     if yaRegistrado == False:
         collection.insert(
-            {'name': nombre, 'email': email, 'password': password})
+            {'name': nombre, 'surname': apellido, 'email': email, 'password': password})
 
     return yaRegistrado
 
@@ -101,11 +101,11 @@ def loginUser(email):
     collection = db['users']
     user = {}
     resultados = collection.find(
-        {'email': email}, {'_id': 0, 'name': 1, 'password': 1, 'email': 1})
+        {'email': email}, {'_id': 0, 'name': 1, 'surname':1, 'password': 1, 'email': 1})
 
     for documento in resultados:
         user.update(
-            {'email': documento['email'], 'name': documento['name'], 'password': documento['password']})
+            {'email': documento['email'], 'name': documento['name'], 'surname': documento['surname'], 'password': documento['password']})
 
     if user == '{}':
         noRegistrado = True

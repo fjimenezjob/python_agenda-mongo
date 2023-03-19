@@ -11,16 +11,16 @@
 {% endif %}
     <form action="{{ url_for('register') }}" method="POST" class="">
         <label for="name">Nombre:
-            <input class="input" type="text" name="name" id="">
+            <input class="input" type="text" name="name" id="" required>
         </label>
         <label for="apellidos">Apellidos:
-            <input class="input" type="text" name="apellidos" id="">
+            <input class="input" type="text" name="apellidos" id="" required>
         </label>
         <label for="email">Email:
-            <input class="input" type="text" name="email" id="">
+            <input class="input" type="text" name="email" id="" required>
         </label>
         <label for="password">Password:
-            <input class="input" type="password" name="password" id="">
+            <input class="input" type="password" name="password" id="" required>
         </label>
         <button class="button is-info" type="submit">Enviar</button>
     </form>

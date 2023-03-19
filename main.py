@@ -9,8 +9,8 @@ titulo = []
 
 @app.route('/')
 def security():
-    if 'user' in session:
-        return redirect('index')
+    if 'email' in session:
+        return redirect('crear')
     else:
         return redirect('login')
 
@@ -32,6 +32,7 @@ def login():
 
             if user['email'] == email and user['password'] == contra:
                 session['name'] = user['name']
+                session['surname'] = user['surname']
                 session['email'] = email
                 return redirect('crear')
         else:
